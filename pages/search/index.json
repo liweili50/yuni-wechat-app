@@ -1,11 +1,13 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "搜索",
+  "backgroundColor": "#F2F2F2",
   "usingComponents": {
-    "t-navbar": "tdesign-miniprogram/navbar/navbar",
-    "t-search": "/miniprogram_npm/tdesign-miniprogram/search/search",
-    "t-icon": "/miniprogram_npm/tdesign-miniprogram/icon/icon",
-    "t-dialog": "/miniprogram_npm/tdesign-miniprogram/dialog/dialog",
-    "t-tag": "/miniprogram_npm/tdesign-miniprogram/tag/tag",
-    "t-check-tag": "/miniprogram_npm/tdesign-miniprogram/check-tag/check-tag"
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-tag": "tdesign-miniprogram/tag/tag",
+    "t-check-tag": "tdesign-miniprogram/check-tag/check-tag"
   }
 }

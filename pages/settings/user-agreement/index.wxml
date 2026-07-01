@@ -1,0 +1,102 @@
+<scroll-view class="agreement" scroll-y>
+  <view class="agreement__title">用户服务协议</view>
+  <view class="agreement__update">更新日期：2026年7月1日</view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">导言</view>
+    <view class="agreement__text">
+      欢迎使用本应用（以下简称"我们"）。本协议是您与我们之间关于使用本应用服务所订立的协议。请您仔细阅读本协议，您点击"同意"或使用本应用即表示您已充分理解并同意本协议的全部内容。
+    </view>
+  </view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">一、账号注册与管理</view>
+    <view class="agreement__text">
+      1. 您在使用本应用部分功能前需要注册账号。您应提供真实、准确的注册信息，并妥善保管账号和密码。
+    </view>
+    <view class="agreement__text">
+      2. 您注册的账号仅限于您本人使用，不得转让、出借或允许他人以您的身份使用。
+    </view>
+    <view class="agreement__text">
+      3. 如发现账号异常登录或存在安全漏洞，您应立即通知我们，我们对因您未及时通知而造成的损失不承担责任。
+    </view>
+    <view class="agreement__text">
+      4. 我们有权依据法律法规或服务需要，对账号注册条件、数量及使用方式进行合理限制。
+    </view>
+  </view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">二、用户行为规范</view>
+    <view class="agreement__text">
+      1. 您承诺在使用本应用过程中遵守国家法律法规，不得利用本应用从事任何违法违规活动。
+    </view>
+    <view class="agreement__text">
+      2. 您不得利用本应用发布、传播违法信息、垃圾信息或进行任何干扰服务正常运行的行为。
+    </view>
+    <view class="agreement__text">
+      3. 您不得对本应用进行反向工程、反编译或试图获取源代码，不得对系统进行攻击或破坏。
+    </view>
+    <view class="agreement__text">
+      4. 如您违反上述约定，我们有权采取警告、限制功能、封禁账号等措施，并保留追究法律责任的权利。
+    </view>
+  </view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">三、知识产权</view>
+    <view class="agreement__text">
+      1. 本应用的所有内容，包括但不限于文字、图片、音频、视频、软件、界面设计等，均受知识产权法保护。
+    </view>
+    <view class="agreement__text">
+      2. 未经我们书面许可，您不得以任何方式复制、传播、展示、修改或创建衍生作品。
+    </view>
+    <view class="agreement__text">
+      3. 您在本应用上发布的内容，您保留知识产权，但授予我们在本应用范围内免费使用的许可。
+    </view>
+  </view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">四、隐私保护</view>
+    <view class="agreement__text">
+      1. 我们重视您的隐私保护。我们将按照隐私政策收集、使用和处理您的个人信息。
+    </view>
+    <view class="agreement__text">
+      2. 我们采用业界通行的安全技术和措施保护您的数据安全，但我们不对因不可抗力或第三方原因导致的数据泄露承担责任。
+    </view>
+    <view class="agreement__text">
+      3. 我们不会将您的个人信息出售给第三方。在法律法规要求或保障服务所必需的情况下，我们可能会共享必要的信息。
+    </view>
+  </view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">五、免责声明</view>
+    <view class="agreement__text">
+      1. 本应用按"现状"提供，我们不保证服务不会中断或完全无错误。
+    </view>
+    <view class="agreement__text">
+      2. 在法律允许的最大范围内，我们不对因使用或无法使用本应用所产生的任何间接、附带或后果性损害承担责任。
+    </view>
+    <view class="agreement__text">
+      3. 您通过本应用获取的第三方服务或内容，由第三方承担责任，我们不对此作出任何保证。
+    </view>
+  </view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">六、协议变更与终止</view>
+    <view class="agreement__text">
+      1. 我们有权根据需要修改本协议，修改后的协议将在应用内公布。如您继续使用本应用，即视为接受修改后的协议。
+    </view>
+    <view class="agreement__text">
+      2. 如您违反本协议，我们有权终止向您提供服务并保留追究法律责任的权利。
+    </view>
+    <view class="agreement__text">
+      3. 协议终止后，您使用本应用的权利即告终止，但不影响终止前已产生的权利义务。
+    </view>
+  </view>
+
+  <view class="agreement__section">
+    <view class="agreement__section-title">七、联系我们</view>
+    <view class="agreement__text">
+      如您对本协议有任何疑问、意见或建议，请通过以下方式与我们联系：您可以通过应用内的"联系客服"功能与我们取得联系，我们将在合理期限内回复您的请求。
+    </view>
+  </view>
+</scroll-view>

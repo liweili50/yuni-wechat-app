@@ -41,9 +41,7 @@
       "outputPath": ""
     },
     "disableUseStrict": false,
-    "useCompilerPlugins": [
-      "less"
-    ],
+    "useCompilerPlugins": ["less"],
     "condition": false,
     "ignoreUploadUnusedFiles": true
   },
@@ -54,12 +52,6 @@
   "condition": {
     "miniprogram": {
       "list": [
-        {
-          "name": "login",
-          "pathName": "pages/login/login",
-          "query": "",
-          "scene": null
-        },
         {
           "name": "my",
           "pathName": "pages/my/index",

@@ -1,0 +1,46 @@
+<scroll-view class="privacy" scroll-y>
+  <view class="privacy__title">隐私政策</view>
+  <view class="privacy__update">更新日期：2026年7月1日</view>
+
+  <view class="privacy__section">
+    <view class="privacy__section-title">一、信息收集</view>
+    <view class="privacy__text">
+      我们在您授权登录后收集以下信息：
+    </view>
+    <view class="privacy__text">• 微信昵称：用于在个人资料页展示您的用户名。</view>
+    <view class="privacy__text">• 微信头像：用于在个人资料页展示您的头像图片。</view>
+  </view>
+
+  <view class="privacy__section">
+    <view class="privacy__section-title">二、使用目的</view>
+    <view class="privacy__text">
+      以上信息仅用于本小程序内个人资料展示，不会用于其他任何用途。
+    </view>
+  </view>
+
+  <view class="privacy__section">
+    <view class="privacy__section-title">三、存储方式</view>
+    <view class="privacy__text">
+      您的信息仅存储在用户设备本地，不上传至云端服务器。您可随时通过清除小程序数据来删除这些信息。
+    </view>
+  </view>
+
+  <view class="privacy__section">
+    <view class="privacy__section-title">四、用户权利</view>
+    <view class="privacy__text">
+      您可随时通过以下方式管理您的信息：
+    </view>
+    <view class="privacy__text">• 在「我的」页面点击「清除本地数据」删除已存储的信息。</view>
+    <view class="privacy__text">• 在微信设置中清除小程序数据。</view>
+    <view class="privacy__text">• 拒绝授权后，我们将不会收集您的任何信息。</view>
+  </view>
+
+  <view class="privacy__section">
+    <view class="privacy__section-title">五、联系方式</view>
+    <view class="privacy__text">
+      如您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：
+    </view>
+    <view class="privacy__text">• 邮箱：privacy@example.com</view>
+    <view class="privacy__text">• 通过小程序内的「联系客服」功能与我们取得联系。</view>
+  </view>
+</scroll-view>

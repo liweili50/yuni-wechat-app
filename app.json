@@ -10,17 +10,11 @@
       "pages": ["index"]
     },
     {
-      "root": "pages/login",
-      "name": "login",
-      "pages": ["login"]
+      "root": "pages/settings",
+      "name": "settings",
+      "pages": ["user-agreement/index", "privacy/index"]
     }
   ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
-  },
   "tabBar": {
     "custom": true,
     "list": [

@@ -1,8 +1,6 @@
 <t-toast id="t-toast" />
 
 <view class="my">
-  <image class="nav-bg" src="/static/bg_navbar.png" />
-  <nav title-text="我的" />
   <view class="my-info">
     <t-cell-group>
       <t-cell wx:if="{{isLoad}}" bordered="{{false}}">
@@ -16,32 +14,43 @@
         </view>
         <t-icon slot="right-icon" name="edit" size="40rpx" color="#000000e6" bindtap="onNavigateTo" />
       </t-cell>
-      <t-cell
-        wx:if="{{!isLoad}}"
-        title="请先登录/注册"
-        bordered="{{false}}"
-        t-class-title="cell-class-title"
-        t-class-center="cell-class-center"
-        bindtap="onLogin"
-      >
+      <t-cell wx:if="{{!isLoad}}" title="请先登录" bordered="{{false}}" t-class-title="cell-class-title"
+        t-class-center="cell-class-center" bindtap="onLogin">
         <t-avatar slot="left-icon" icon="user" size="128rpx" />
       </t-cell>
     </t-cell-group>
-    <!-- <t-divider t-class="divider-class" /> -->
   </view>
 
   <t-cell-group theme="card">
-    <t-cell
-      wx:for="{{settingList}}"
-      wx:for-item="item"
-      wx:key="type"
-      title="{{item.name}}"
-      url="{{item.url}}"
-      leftIcon="{{item.icon}}"
-      hover
-      arrow
-      data-data="{{item}}"
-      bindclick="onEleClick"
-    />
+    <button open-type="contact" class="contact-btn">
+      <t-cell title="联系客服" leftIcon="service" hover arrow />
+    </button>
+    <t-cell wx:for="{{settingList}}" wx:for-item="item" wx:key="type" title="{{item.name}}" url="{{item.url}}"
+      leftIcon="{{item.icon}}" hover arrow data-data="{{item}}" bindclick="onEleClick" />
   </t-cell-group>
+
+  <view wx:if="{{showLoginModal}}" class="login-modal__overlay" catchtap="closeLoginModal">
+    <view class="login-modal__content" catchtap>
+      <view class="login-modal__close" bindtap="closeLoginModal">
+        <t-icon name="close" size="40rpx" color="#999" />
+      </view>
+      <view class="login-modal__title">微信用户登录</view>
+
+      <button class="login-modal__avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <image wx:if="{{tempAvatarUrl}}" class="login-modal__avatar-img" src="{{tempAvatarUrl}}" mode="aspectFill" />
+        <view wx:else class="login-modal__avatar-placeholder">
+          <t-icon name="user" size="64rpx" color="#ccc" />
+        </view>
+      </button>
+      <view class="login-modal__avatar-tip">点击选择微信头像</view>
+
+      <input class="login-modal__nickname" type="nickname" placeholder="你的微信昵称" bindinput="onNicknameInput" />
+
+      <t-button class="login-modal__btn" theme="primary" size="large" block bindtap="confirmLogin" disabled="{{!tempNickName}}">
+        确认登录
+      </t-button>
+
+      <view class="login-modal__agreement">登录即代表同意《用户协议》和《隐私政策》</view>
+    </view>
+  </view>
 </view>

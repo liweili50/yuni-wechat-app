@@ -6,6 +6,7 @@ import request from '~/api/request';
 
 Page({
   data: {
+    statusHeight: 0,
     enable: false,
     swiperList: [],
     cardInfo: [],
@@ -29,6 +30,12 @@ Page({
       focusCardInfo: cardRes.data.slice(0, 3),
       swiperList: swiperRes.data,
     });
+  },
+  lifetimes: {
+    ready() {
+      const statusHeight = wx.getWindowInfo().statusBarHeight;
+      this.setData({ statusHeight });
+    },
   },
   onLoad(option) {
     if (wx.getUserProfile) {
@@ -74,7 +81,7 @@ Page({
       content,
     });
   },
-  goRelease() {
+  searchTurn() {
     wx.navigateTo({
       url: '/pages/release/index',
     });
