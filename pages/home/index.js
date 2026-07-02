@@ -10,6 +10,7 @@ Page({
     enable: false,
     swiperList: [],
     cardInfo: [],
+    homeScrollStyle: '',
     searchKeyword: '',
     allCardInfo: [],
     // 发布
@@ -22,6 +23,8 @@ Page({
   },
   // 生命周期
   async onReady() {
+    this.updateHomeScrollHeight();
+
     const [cardRes, swiperRes] = await Promise.all([
       request('/home/cards').then((res) => res.data),
       request('/home/swipers').then((res) => res.data),
@@ -34,6 +37,7 @@ Page({
       focusCardInfo: allCards.slice(0, 3),
       swiperList: swiperRes.data,
     });
+    this.updateHomeScrollHeight();
   },
   lifetimes: {
     ready() {
@@ -59,6 +63,9 @@ Page({
   },
   onRefresh() {
     this.refresh();
+  },
+  onResize() {
+    this.updateHomeScrollHeight();
   },
   async refresh() {
     this.setData({
@@ -98,6 +105,7 @@ Page({
       wx.removeStorageSync('searchKeyword');
       this.setData({ searchKeyword: keyword });
       this.filterCards(keyword);
+      this.updateHomeScrollHeight();
     }
   },
 
@@ -117,5 +125,29 @@ Page({
   clearSearch() {
     this.setData({ searchKeyword: '' });
     this.filterCards('');
+    this.updateHomeScrollHeight();
+  },
+
+  updateHomeScrollHeight() {
+    wx.nextTick(() => {
+      const query = wx.createSelectorQuery();
+      query.select('.home-content').boundingClientRect();
+      query.select('.home-search-bar').boundingClientRect();
+      query.exec(([contentRect, searchRect]) => {
+        if (!contentRect || !contentRect.height) {
+          return;
+        }
+
+        const windowInfo = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync();
+        const tabHeight = (windowInfo.windowWidth / 750) * 96;
+        const searchHeight = searchRect && searchRect.height ? searchRect.height : 0;
+        const scrollHeight = Math.max(contentRect.height - searchHeight - tabHeight, 0);
+        const homeScrollStyle = `height: ${scrollHeight}px;`;
+
+        if (homeScrollStyle !== this.data.homeScrollStyle) {
+          this.setData({ homeScrollStyle });
+        }
+      });
+    });
   },
 });

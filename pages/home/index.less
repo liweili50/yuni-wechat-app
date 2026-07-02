@@ -5,13 +5,14 @@
 .home-container {
   width: 100%;
   height: 100%;
-  // height: calc(100% - 200px);
   display: flex;
   flex-direction: column;
+
   .home-navbar {
     flex-shrink: 0;
-    background: linear-gradient(135deg, #8E9EAB, #EEF2F3);
+    background: linear-gradient(135deg, #8e9eab, #eef2f3);
     --td-navbar-bg-color: transparent;
+
     .t-navbar {
       &__left {
         margin-left: 12rpx;
@@ -50,14 +51,28 @@
   .t-tabs {
     flex: 1;
     min-height: 0;
+    display: flex;
+    flex-direction: column;
     --td-tab-item-tag-height: @home-tab-item-height;
     --td-tab-font-size: @font-size-small;
 
     &__content {
-      height: calc(100% - @home-tab-item-height);
-      overflow: auto;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
       background-color: @bg-color;
     }
+  }
+
+  .t-tab-panel,
+  .t-tab-panel__content,
+  .t-pull-down-refresh {
+    height: 100%;
+  }
+
+  .home-scroll {
+    height: 100%;
+    background-color: @bg-color;
   }
 
   .home-card-list {
@@ -65,8 +80,13 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 24rpx 12rpx;
-    padding: 24rpx;
+    padding: 24rpx 24rpx calc(24rpx + env(safe-area-inset-bottom));
+    box-sizing: border-box;
     background-color: @bg-color;
+
+    &__item {
+      width: calc((100% - 12rpx) / 2);
+    }
   }
 
   .home-search-bar {
