@@ -21,21 +21,9 @@ Page({
     this.queryPopular();
   },
 
-  /**
-   * 查询历史记录
-   * @returns {Promise<void>}
-   */
-  async queryHistory() {
-    request('/api/searchHistory').then((res) => {
-      const { code, data } = res;
-
-      if (code === 200) {
-        const { historyWords = [] } = data;
-        this.setData({
-          historyWords,
-        });
-      }
-    });
+  queryHistory() {
+    const historyWords = wx.getStorageSync('searchHistory') || [];
+    this.setData({ historyWords });
   },
 
   /**
@@ -70,11 +58,7 @@ Page({
       searchValue,
       historyWords,
     });
-    // if (searchValue) {
-    //     wx.navigateTo({
-    //         url: `/pages/goods/result/index?searchValue=${searchValue}`,
-    //     });
-    // }
+    wx.setStorageSync('searchHistory', historyWords);
   },
 
   /**
@@ -95,6 +79,7 @@ Page({
     } else {
       this.setData({ historyWords: [], dialogShow: false });
     }
+    wx.setStorageSync('searchHistory', this.data.historyWords);
   },
 
   /**
