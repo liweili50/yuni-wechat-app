@@ -104,6 +104,16 @@ Page({
     wx.navigateTo({ url: '/pages/search/index' });
   },
 
+  onCardTap(e) {
+    const { id } = e.currentTarget.dataset;
+
+    if (!id) {
+      return;
+    }
+
+    wx.navigateTo({ url: `/pages/detail/index?id=${id}` });
+  },
+
   onShow() {
     const keyword = wx.getStorageSync('searchKeyword');
     if (keyword) {

@@ -13,6 +13,11 @@
       "root": "pages/settings",
       "name": "settings",
       "pages": ["user-agreement/index", "privacy/index"]
+    },
+    {
+      "root": "pages/detail",
+      "name": "detail",
+      "pages": ["index"]
     }
   ],
   "tabBar": {

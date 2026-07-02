@@ -23,7 +23,7 @@
               <view class="home-card-list__item">
                 <t-swiper list="{{swiperList}}" navigation="{{ { type: 'dots-bar' } }}" height="488rpx" />
               </view>
-              <view class="home-card-list__item" wx:for="{{cardInfo}}" wx:key="index">
+              <view class="home-card-list__item" wx:for="{{cardInfo}}" wx:key="id" data-id="{{item.id}}" bindtap="onCardTap">
                 <card desc="{{item.desc}}" url="{{item.url}}" tags="{{item.tags}}" />
               </view>
             </view>
@@ -33,7 +33,7 @@
       <t-tab-panel label="我的关注" value="follow">
         <scroll-view class="home-scroll" style="{{homeScrollStyle}}" scroll-y enhanced show-scrollbar="{{false}}">
           <view class="home-card-list">
-            <view class="home-card-list__item" wx:for="{{focusCardInfo}}" wx:key="index">
+            <view class="home-card-list__item" wx:for="{{focusCardInfo}}" wx:key="id" data-id="{{item.id}}" bindtap="onCardTap">
               <card desc="{{item.desc}}" url="{{item.url}}" tags="{{item.tags}}" />
             </view>
           </view>

@@ -1,0 +1,27 @@
+<scroll-view class="card-detail" scroll-y>
+  <view wx:if="{{isLoading}}" class="card-detail__empty">加载中...</view>
+
+  <view wx:elif="{{detail}}" class="card-detail__body">
+    <view class="card-detail__panel card-detail__summary">
+      <view class="card-detail__title">{{detail.desc}}</view>
+      <view class="card-detail__tag-group">
+        <t-tag wx:for="{{detail.tags}}" wx:key="index" size="small" variant="light" theme="{{item.theme}}">{{item.text}}</t-tag>
+      </view>
+    </view>
+
+    <view class="card-detail__panel">
+      <view class="card-detail__section-title">图文详情</view>
+      <view class="card-detail__content">
+        <block wx:for="{{detail.content}}" wx:key="index">
+          <image wx:if="{{item.type === 'image'}}" class="card-detail__content-image" src="{{item.url}}" mode="{{item.mode || 'widthFix'}}" />
+          <view wx:elif="{{item.type === 'text'}}" class="card-detail__text">{{item.value}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="card-detail__empty">
+    <view>未找到对应素材</view>
+    <t-button class="card-detail__back" theme="primary" size="medium" bindtap="onBackHome">返回首页</t-button>
+  </view>
+</scroll-view>
