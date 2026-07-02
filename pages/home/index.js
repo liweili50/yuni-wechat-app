@@ -46,6 +46,11 @@ Page({
     },
   },
   onLoad(option) {
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline'],
+    });
+
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true,
@@ -107,6 +112,22 @@ Page({
       this.filterCards(keyword);
       this.updateHomeScrollHeight();
     }
+  },
+
+  onShareAppMessage() {
+    return {
+      title: 'yuni - 发现更多精彩内容',
+      path: '/pages/home/index',
+      imageUrl: '/static/home/swiper0.png',
+    };
+  },
+
+  onShareTimeline() {
+    return {
+      title: 'yuni - 发现更多精彩内容',
+      query: '',
+      imageUrl: '/static/home/swiper0.png',
+    };
   },
 
   filterCards(keyword) {
