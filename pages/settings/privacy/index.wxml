@@ -1,5 +1,5 @@
 <scroll-view class="privacy" scroll-y>
-  <view class="privacy__title">隐私政策</view>
+  <!-- <view class="privacy__title">隐私政策</view> -->
   <view class="privacy__update">更新日期：2026年7月1日</view>
 
   <view class="privacy__section">
@@ -30,7 +30,7 @@
     <view class="privacy__text">
       您可随时通过以下方式管理您的信息：
     </view>
-    <view class="privacy__text">• 在「我的」页面点击「清除本地数据」删除已存储的信息。</view>
+    <!-- <view class="privacy__text">• 在「我的」页面点击「清除本地数据」删除已存储的信息。</view> -->
     <view class="privacy__text">• 在微信设置中清除小程序数据。</view>
     <view class="privacy__text">• 拒绝授权后，我们将不会收集您的任何信息。</view>
   </view>
@@ -40,7 +40,7 @@
     <view class="privacy__text">
       如您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：
     </view>
-    <view class="privacy__text">• 邮箱：privacy@example.com</view>
+    <view class="privacy__text">• 邮箱：3173585254@qq.com</view>
     <view class="privacy__text">• 通过小程序内的「联系客服」功能与我们取得联系。</view>
   </view>
 </scroll-view>

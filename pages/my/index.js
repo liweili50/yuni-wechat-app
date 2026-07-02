@@ -41,8 +41,8 @@ Page({
         name: '联系我们',
         icon: 'service',
         type: 'contact',
-        phone: '400-xxx-xxxx',
-        wechatId: 'contact_wechat',
+        phone: '18595372038',
+        wechatId: '18595372038',
       },
       {
         name: '用户协议',

@@ -1,5 +1,5 @@
 <scroll-view class="agreement" scroll-y>
-  <view class="agreement__title">用户服务协议</view>
+  <!-- <view class="agreement__title">用户服务协议</view> -->
   <view class="agreement__update">更新日期：2026年7月1日</view>
 
   <view class="agreement__section">

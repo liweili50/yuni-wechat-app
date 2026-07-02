@@ -64,7 +64,7 @@
           <text class="contact-sheet__label">拨打电话</text>
         </view>
         <view class="contact-sheet__item contact-sheet__btn" bindtap="onCopyWechat">
-          <text class="contact-sheet__label">微信联系</text>
+          <text class="contact-sheet__label">微信(18595372038)</text>
         </view>
       </view>
     </t-action-sheet>
