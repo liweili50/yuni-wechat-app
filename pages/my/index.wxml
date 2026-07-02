@@ -7,12 +7,7 @@
         <t-avatar image="{{personalInfo.image}}" slot="left-icon" size="large" />
         <view class="my-info__person" slot="description">
           <view class="name">{{personalInfo.name}}</view>
-          <view class="tags">
-            <t-tag class="tag" variant="light" icon="discount">{{personalInfo.star}}</t-tag>
-            <t-tag class="tag" variant="light" icon="location">{{personalInfo.city}}</t-tag>
-          </view>
         </view>
-        <t-icon slot="right-icon" name="edit" size="40rpx" color="#000000e6" bindtap="onNavigateTo" />
       </t-cell>
       <t-cell wx:if="{{!isLoad}}" title="请先登录" bordered="{{false}}" t-class-title="cell-class-title"
         t-class-center="cell-class-center" bindtap="onLogin">
@@ -22,9 +17,6 @@
   </view>
 
   <t-cell-group theme="card">
-    <button open-type="contact" class="contact-btn">
-      <t-cell title="联系客服" leftIcon="service" hover arrow />
-    </button>
     <t-cell wx:for="{{settingList}}" wx:for-item="item" wx:key="type" title="{{item.name}}" url="{{item.url}}"
       leftIcon="{{item.icon}}" hover arrow data-data="{{item}}" bindclick="onEleClick" />
   </t-cell-group>
@@ -52,5 +44,29 @@
 
       <view class="login-modal__agreement">登录即代表同意《用户协议》和《隐私政策》</view>
     </view>
+  </view>
+
+  <view wx:if="{{showContactSheet}}">
+    <t-action-sheet
+      visible="{{showContactSheet}}"
+      showCancel="{{false}}"
+      cancelText="取消"
+      bind:cancel="closeContactSheet"
+      bind:close="closeContactSheet"
+    >
+      <view class="contact-sheet__list">
+        <button open-type="contact" class="contact-sheet__btn">
+          <view class="contact-sheet__item">
+            <text class="contact-sheet__label">客服</text>
+          </view>
+        </button>
+        <view class="contact-sheet__item contact-sheet__btn" bindtap="onCallPhone">
+          <text class="contact-sheet__label">拨打电话</text>
+        </view>
+        <view class="contact-sheet__item contact-sheet__btn" bindtap="onCopyWechat">
+          <text class="contact-sheet__label">微信联系</text>
+        </view>
+      </view>
+    </t-action-sheet>
   </view>
 </view>

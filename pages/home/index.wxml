@@ -2,14 +2,18 @@
   <view class="home-navbar">
     <t-navbar>
       <view slot="left">
-        <view class="home-navbar__left">
-          <t-search shape="round" placeholder="请搜索你想要的内容" />
+        <view class="home-navbar__left" bindtap="searchTurn">
+          <t-search shape="round" placeholder="请搜索你想要的内容" disabled />
         </view>
       </view>
     </t-navbar>
   </view>
 
   <view class="home-content">
+    <view wx:if="{{searchKeyword}}" class="home-search-bar">
+      <text class="home-search-bar__label">搜索结果：{{searchKeyword}}</text>
+      <text class="home-search-bar__clear" bindtap="clearSearch">清除</text>
+    </view>
     <t-tabs sticky="{{true}}" defaultValue="recommend">
       <t-tab-panel label="推荐" value="recommend">
         <t-pull-down-refresh value="{{enable}}" bind:refresh="onRefresh"

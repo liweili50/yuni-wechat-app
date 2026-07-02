@@ -10,6 +10,8 @@ Page({
     enable: false,
     swiperList: [],
     cardInfo: [],
+    searchKeyword: '',
+    allCardInfo: [],
     // 发布
     motto: 'Hello World',
     userInfo: {},
@@ -25,9 +27,11 @@ Page({
       request('/home/swipers').then((res) => res.data),
     ]);
 
+    const allCards = cardRes.data;
     this.setData({
-      cardInfo: cardRes.data,
-      focusCardInfo: cardRes.data.slice(0, 3),
+      allCardInfo: allCards,
+      cardInfo: allCards,
+      focusCardInfo: allCards.slice(0, 3),
       swiperList: swiperRes.data,
     });
   },
@@ -65,10 +69,13 @@ Page({
       request('/home/swipers').then((res) => res.data),
     ]);
 
+    const allCards = cardRes.data;
     setTimeout(() => {
       this.setData({
         enable: false,
-        cardInfo: cardRes.data,
+        allCardInfo: allCards,
+        cardInfo: allCards,
+        focusCardInfo: allCards.slice(0, 3),
         swiperList: swiperRes.data,
       });
     }, 1500);
@@ -82,8 +89,33 @@ Page({
     });
   },
   searchTurn() {
-    wx.navigateTo({
-      url: '/pages/release/index',
-    });
+    wx.navigateTo({ url: '/pages/search/index' });
+  },
+
+  onShow() {
+    const keyword = wx.getStorageSync('searchKeyword');
+    if (keyword) {
+      wx.removeStorageSync('searchKeyword');
+      this.setData({ searchKeyword: keyword });
+      this.filterCards(keyword);
+    }
+  },
+
+  filterCards(keyword) {
+    const { allCardInfo } = this.data;
+    if (!keyword) {
+      this.setData({ cardInfo: allCardInfo, focusCardInfo: allCardInfo.slice(0, 3) });
+      return;
+    }
+    const kw = keyword.toLowerCase();
+    const filtered = allCardInfo.filter(
+      (c) => c.desc.toLowerCase().includes(kw) || (c.tags && c.tags.some((t) => t.text.toLowerCase().includes(kw))),
+    );
+    this.setData({ cardInfo: filtered, focusCardInfo: filtered.slice(0, 3) });
+  },
+
+  clearSearch() {
+    this.setData({ searchKeyword: '' });
+    this.filterCards('');
   },
 });

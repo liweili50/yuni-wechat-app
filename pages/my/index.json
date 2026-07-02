@@ -14,6 +14,7 @@
     "t-grid-item": "tdesign-miniprogram/grid-item/grid-item",
     "t-tag": "tdesign-miniprogram/tag/tag",
     "t-button": "tdesign-miniprogram/button/button",
+    "t-action-sheet": "tdesign-miniprogram/action-sheet/action-sheet",
     "nav": "/components/nav"
   }
 }

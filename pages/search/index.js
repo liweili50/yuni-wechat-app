@@ -146,6 +146,7 @@ Page({
     const searchValue = historyWords[index || 0] || '';
 
     this.setHistoryWords(searchValue);
+    this.navigateToHome(searchValue);
   },
 
   handlePopularTap(e) {
@@ -154,6 +155,7 @@ Page({
     const searchValue = popularWords[index || 0] || '';
 
     this.setHistoryWords(searchValue);
+    this.navigateToHome(searchValue);
   },
 
   /**
@@ -166,6 +168,7 @@ Page({
     if (value.length === 0) return;
 
     this.setHistoryWords(value);
+    this.navigateToHome(value);
   },
 
   /**
@@ -176,6 +179,11 @@ Page({
     this.setData({
       searchValue: '',
     });
+    wx.navigateBack();
+  },
+
+  navigateToHome(keyword) {
+    wx.setStorageSync('searchKeyword', keyword);
     wx.switchTab({ url: '/pages/home/index' });
   },
 });

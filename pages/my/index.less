@@ -1,5 +1,5 @@
 .my {
-  height: calc(100vh - 56px);
+  height: 100%;
   overflow-y: auto;
 
   --td-navbar-bg-color: transparent;
@@ -51,25 +51,18 @@
     // 头像margin-right
     --td-spacer-1: 32rpx;
 
+    .t-cell__description {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
     &__person {
       .name {
         line-height: 48rpx;
         font-size: 32rpx;
         color: #000000e6;
         font-weight: 600;
-      }
-
-      .tags {
-        display: flex;
-        margin-top: 16rpx;
-
-        --td-text-color-primary: #000000e6;
-        --td-tag-medium-font-size: 20rpx;
-        --td-tag-medium-icon-size: 24rpx;
-      }
-
-      .tag:not(:last-child) {
-        margin-right: 16rpx;
       }
     }
   }
@@ -101,20 +94,7 @@
     }
   }
 
-  .contact-btn {
-    background: none;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: block;
-    z-index: 10;
-  }
-
   .login-modal {
-
-
-
     &__overlay {
       position: fixed;
       top: 0;
@@ -216,6 +196,40 @@
       color: #999;
       margin-top: 24rpx;
       text-align: center;
+    }
+  }
+
+  .contact-sheet {
+    &__list {
+      padding: 16rpx 32rpx;
+    }
+
+    &__btn {
+      background: none;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      line-height: 1;
+    }
+
+    &__btn::after {
+      border: none;
+    }
+
+    &__item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28rpx 0;
+      border-bottom: 1rpx solid #f0f0f0;
+    }
+
+    &__label {
+      font-size: 28rpx;
+      color: #000000e6;
+      margin-left: 16rpx;
     }
   }
 }
