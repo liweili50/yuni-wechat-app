@@ -5,15 +5,17 @@
     <view class="card-detail__panel card-detail__summary">
       <view class="card-detail__title">{{detail.desc}}</view>
       <view class="card-detail__tag-group">
-        <t-tag wx:for="{{detail.tags}}" wx:key="index" size="small" variant="light" theme="{{item.theme}}">{{item.text}}</t-tag>
+        <t-tag wx:for="{{detail.tags}}" wx:key="index" size="small" variant="light" theme="{{item.theme}}">{{item.text}}
+        </t-tag>
       </view>
     </view>
 
     <view class="card-detail__panel">
-      <view class="card-detail__section-title">图文详情</view>
+      <!-- <view class="card-detail__section-title">图文详情</view> -->
       <view class="card-detail__content">
         <block wx:for="{{detail.content}}" wx:key="index">
-          <image wx:if="{{item.type === 'image'}}" class="card-detail__content-image" src="{{item.url}}" mode="{{item.mode || 'widthFix'}}" />
+          <image wx:if="{{item.type === 'image'}}" class="card-detail__content-image" src="{{item.url}}"
+            mode="{{item.mode || 'widthFix'}}" />
           <view wx:elif="{{item.type === 'text'}}" class="card-detail__text">{{item.value}}</view>
         </block>
       </view>

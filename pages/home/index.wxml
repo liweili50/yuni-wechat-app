@@ -20,9 +20,9 @@
           <t-pull-down-refresh value="{{enable}}" bind:refresh="onRefresh"
             loadingTexts="{{['下拉刷新', '松手刷新', '正在刷新', '刷新完成']}}">
             <view class="home-card-list">
-              <view class="home-card-list__item">
+              <!-- <view class="home-card-list__item">
                 <t-swiper list="{{swiperList}}" navigation="{{ { type: 'dots-bar' } }}" height="488rpx" />
-              </view>
+              </view> -->
               <view class="home-card-list__item" wx:for="{{cardInfo}}" wx:key="id" data-id="{{item.id}}" bindtap="onCardTap">
                 <card desc="{{item.desc}}" url="{{item.url}}" tags="{{item.tags}}" />
               </view>

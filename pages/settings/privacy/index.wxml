@@ -30,7 +30,7 @@
     <view class="privacy__text">
       您可随时通过以下方式管理您的信息：
     </view>
-    <!-- <view class="privacy__text">• 在「我的」页面点击「清除本地数据」删除已存储的信息。</view> -->
+    <view class="privacy__text">• 在「我的」页面点击「清除本地数据」删除已存储的信息。</view>
     <view class="privacy__text">• 在微信设置中清除小程序数据。</view>
     <view class="privacy__text">• 拒绝授权后，我们将不会收集您的任何信息。</view>
   </view>
