@@ -3,6 +3,7 @@ import request from '~/api/request';
 
 // 获取应用实例
 // const app = getApp()
+const COLLECTED_CARD_IDS_KEY = 'collectedCardIds';
 
 Page({
   data: {
@@ -13,6 +14,7 @@ Page({
     homeScrollStyle: '',
     searchKeyword: '',
     allCardInfo: [],
+    focusCardInfo: [],
     // 发布
     motto: 'Hello World',
     userInfo: {},
@@ -34,7 +36,7 @@ Page({
     this.setData({
       allCardInfo: allCards,
       cardInfo: allCards,
-      focusCardInfo: allCards.slice(0, 3),
+      focusCardInfo: this.getFocusCardInfo(allCards),
       swiperList: swiperRes.data,
     });
     this.updateHomeScrollHeight();
@@ -87,7 +89,7 @@ Page({
         enable: false,
         allCardInfo: allCards,
         cardInfo: allCards,
-        focusCardInfo: allCards.slice(0, 3),
+        focusCardInfo: this.getFocusCardInfo(allCards),
         swiperList: swiperRes.data,
       });
     }, 1500);
@@ -121,6 +123,11 @@ Page({
       this.setData({ searchKeyword: keyword });
       this.filterCards(keyword);
       this.updateHomeScrollHeight();
+      return;
+    }
+
+    if (this.data.allCardInfo.length) {
+      this.refreshFocusCardInfo();
     }
   },
 
@@ -143,14 +150,35 @@ Page({
   filterCards(keyword) {
     const { allCardInfo } = this.data;
     if (!keyword) {
-      this.setData({ cardInfo: allCardInfo, focusCardInfo: allCardInfo.slice(0, 3) });
+      this.setData({
+        cardInfo: allCardInfo,
+        focusCardInfo: this.getFocusCardInfo(allCardInfo),
+      });
       return;
     }
     const kw = keyword.toLowerCase();
     const filtered = allCardInfo.filter(
       (c) => c.desc.toLowerCase().includes(kw) || (c.tags && c.tags.some((t) => t.text.toLowerCase().includes(kw))),
     );
-    this.setData({ cardInfo: filtered, focusCardInfo: filtered.slice(0, 3) });
+    const focusCardInfo = this.getFocusCardInfo(filtered);
+    this.setData({ cardInfo: filtered, focusCardInfo });
+  },
+
+  getCollectedIds() {
+    const ids = wx.getStorageSync(COLLECTED_CARD_IDS_KEY) || [];
+    return Array.isArray(ids) ? ids.map((item) => String(item)) : [];
+  },
+
+  getFocusCardInfo(cards) {
+    const collectedIds = this.getCollectedIds();
+    return cards.filter((item) => collectedIds.includes(String(item.id)));
+  },
+
+  refreshFocusCardInfo() {
+    const { cardInfo } = this.data;
+    this.setData({
+      focusCardInfo: this.getFocusCardInfo(cardInfo),
+    });
   },
 
   clearSearch() {

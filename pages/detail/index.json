@@ -5,6 +5,7 @@
   "backgroundColor": "#F2F2F2",
   "usingComponents": {
     "t-button": "tdesign-miniprogram/button/button",
+    "t-icon": "tdesign-miniprogram/icon/icon",
     "t-tag": "tdesign-miniprogram/tag/tag"
   }
 }

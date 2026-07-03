@@ -57,10 +57,9 @@
     --td-tab-item-tag-height: @home-tab-item-height;
     --td-tab-font-size: @font-size-small;
 
-    // &__wrapper {
-    //   background: #f4f3f0;
-    //   background-image: linear-gradient(180deg, rgba(142, 158, 171, 0.03) 0%, transparent 20%);
-    // }
+    &__wrapper {
+      
+    }
 
     &__content {
       flex: 1;
@@ -112,6 +111,46 @@
       font-size: 24rpx;
       color: @brand7-normal;
       padding: 8rpx 16rpx;
+    }
+  }
+
+  .home-empty {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80rpx 64rpx calc(80rpx + env(safe-area-inset-bottom));
+    box-sizing: border-box;
+    text-align: center;
+
+    &__icon {
+      width: 128rpx;
+      height: 128rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28rpx;
+      border-radius: 50%;
+      font-size: 72rpx;
+      line-height: 1;
+      color: #e34d59;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
+      box-shadow: 0 14rpx 36rpx rgba(40, 53, 67, 0.08);
+    }
+
+    &__title {
+      font-size: 32rpx;
+      line-height: 44rpx;
+      font-weight: 700;
+      color: @gy1;
+    }
+
+    &__desc {
+      margin-top: 12rpx;
+      font-size: 26rpx;
+      line-height: 40rpx;
+      color: @gy3;
     }
   }
 }

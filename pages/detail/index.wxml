@@ -3,7 +3,12 @@
 
   <view wx:elif="{{detail}}" class="card-detail__body">
     <view class="card-detail__panel card-detail__summary">
-      <view class="card-detail__title">{{detail.desc}}</view>
+      <view class="card-detail__title-row">
+        <view class="card-detail__title">{{detail.desc}}</view>
+        <view class="card-detail__collect" bindtap="onCollectTap" aria-label="{{isCollected ? '取消收藏' : '收藏'}}">
+          <t-icon name="heart-filled" size="44rpx" color="{{isCollected ? '#e34d59' : '#c5cbd3'}}" />
+        </view>
+      </view>
       <view class="card-detail__tag-group">
         <t-tag wx:for="{{detail.tags}}" wx:key="index" size="small" variant="light" theme="{{item.theme}}">{{item.text}}
         </t-tag>

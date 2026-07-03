@@ -33,11 +33,30 @@ page {
     margin-top: 28rpx;
   }
 
+  &__title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20rpx;
+  }
+
   &__title {
+    flex: 1;
     font-size: 40rpx;
     line-height: 56rpx;
     font-weight: 700;
     color: @gy1;
+  }
+
+  &__collect {
+    width: 64rpx;
+    height: 64rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: -4rpx;
+    border-radius: 50%;
+    background-color: #f7f8fa;
   }
 
   &__tag-group {

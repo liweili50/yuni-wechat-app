@@ -54,6 +54,11 @@ Page({
         url: '/pages/settings/privacy/index',
         icon: 'info-circle',
       },
+      {
+        name: '清除本地数据',
+        icon: 'close-octagon',
+        type: 'clearLocalData',
+      },
     ],
   },
 
@@ -130,11 +135,38 @@ Page({
       this.setData({ showContactSheet: true });
       return;
     }
+    if (type === 'clearLocalData') {
+      this.clearLocalData();
+      return;
+    }
     if (url) {
       wx.navigateTo({ url });
       return;
     }
     this.onShowToast('#t-toast', name);
+  },
+
+  clearLocalData() {
+    wx.showModal({
+      title: '确认清除？',
+      content: '将清空微信昵称头像和收藏数据，是否继续？',
+      confirmText: '清除',
+      confirmColor: '#e34d59',
+      success: (res) => {
+        if (!res.confirm) {
+          return;
+        }
+
+        wx.removeStorageSync('userInfo');
+        wx.removeStorageSync('access_token');
+        wx.removeStorageSync('collectedCardIds');
+        this.setData({
+          isLoad: false,
+          personalInfo: {},
+        });
+        this.onShowToast('#t-toast', '本地数据已清除');
+      },
+    });
   },
 
   closeContactSheet() {
