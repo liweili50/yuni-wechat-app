@@ -38,7 +38,8 @@
 
       <input class="login-modal__nickname" type="nickname" placeholder="你的微信昵称" bindinput="onNicknameInput" />
 
-      <t-button class="login-modal__btn" theme="primary" size="large" block bindtap="confirmLogin" disabled="{{!tempNickName}}">
+      <t-button class="login-modal__btn" theme="primary" size="large" block bindtap="confirmLogin"
+        disabled="{{!tempNickName}}">
         确认登录
       </t-button>
 
@@ -47,13 +48,8 @@
   </view>
 
   <view wx:if="{{showContactSheet}}">
-    <t-action-sheet
-      visible="{{showContactSheet}}"
-      showCancel="{{false}}"
-      cancelText="取消"
-      bind:cancel="closeContactSheet"
-      bind:close="closeContactSheet"
-    >
+    <t-action-sheet visible="{{showContactSheet}}" showCancel="{{false}}" cancelText="取消"
+      bind:cancel="closeContactSheet" bind:close="closeContactSheet">
       <view class="contact-sheet__list">
         <button open-type="contact" class="contact-sheet__btn">
           <view class="contact-sheet__item">
@@ -64,9 +60,13 @@
           <text class="contact-sheet__label">拨打电话</text>
         </view>
         <view class="contact-sheet__item contact-sheet__btn" bindtap="onCopyWechat">
-          <text class="contact-sheet__label">微信(18595372038)</text>
+          <text class="contact-sheet__label">微信(yuni1346)</text>
         </view>
       </view>
     </t-action-sheet>
+  </view>
+
+  <view class="my-footer">
+    <text>wx: yuni1346</text>
   </view>
 </view>

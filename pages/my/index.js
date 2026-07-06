@@ -6,16 +6,15 @@ Page({
 
   data: {
     isLoad: false,
-    service: [],
     personalInfo: {},
     showContactSheet: false,
-    settingList: [
-      {
-        name: '联系我们',
+    settingList: [{
+        name: '联系预订',
         icon: 'service',
         type: 'contact',
         phone: '18595372038',
-        wechatId: '18595372038',
+        wechatId: 'yuni1346',
+        url: ''
       },
       {
         name: '用户协议',
@@ -31,12 +30,12 @@ Page({
         name: '清除本地数据',
         icon: 'close-octagon',
         type: 'clearLocalData',
+        url: ''
       },
     ],
   },
 
-  onLoad() {
-  },
+  onLoad() {},
 
   async onShow() {
     const Token = wx.getStorageSync('access_token');
@@ -45,12 +44,18 @@ Page({
       if (localInfo) {
         this.setData({
           isLoad: true,
-          personalInfo: { image: localInfo.avatarUrl, name: localInfo.nickName },
+          personalInfo: {
+            image: localInfo.avatarUrl,
+            name: localInfo.nickName
+          },
         });
       } else {
         try {
           const personalInfo = await this.getPersonalInfo();
-          this.setData({ isLoad: true, personalInfo });
+          this.setData({
+            isLoad: true,
+            personalInfo
+          });
         } catch (err) {
           console.warn('Failed to fetch personal info:', err);
         }
@@ -72,30 +77,50 @@ Page({
   },
 
   closeLoginModal() {
-    this.setData({ showLoginModal: false });
+    this.setData({
+      showLoginModal: false
+    });
   },
 
   onChooseAvatar(e) {
-    this.setData({ tempAvatarUrl: e.detail.avatarUrl });
+    this.setData({
+      tempAvatarUrl: e.detail.avatarUrl
+    });
   },
 
   onNicknameInput(e) {
-    this.setData({ tempNickName: e.detail.value });
+    this.setData({
+      tempNickName: e.detail.value
+    });
   },
 
   confirmLogin() {
-    const { tempAvatarUrl, tempNickName } = this.data;
+    const {
+      tempAvatarUrl,
+      tempNickName
+    } = this.data;
     if (!tempNickName) return;
-    wx.setStorageSync('userInfo', { avatarUrl: tempAvatarUrl, nickName: tempNickName });
+    wx.setStorageSync('userInfo', {
+      avatarUrl: tempAvatarUrl,
+      nickName: tempNickName
+    });
     wx.setStorageSync('access_token', `mock-token-${Date.now()}`);
-    this.setData({ showLoginModal: false });
+    this.setData({
+      showLoginModal: false
+    });
     this.onShow();
   },
 
   onEleClick(e) {
-    const { name, type, url } = e.currentTarget.dataset.data;
+    const {
+      name,
+      type,
+      url
+    } = e.currentTarget.dataset.data;
     if (type === 'contact') {
-      this.setData({ showContactSheet: true });
+      this.setData({
+        showContactSheet: true
+      });
       return;
     }
     if (type === 'clearLocalData') {
@@ -103,7 +128,9 @@ Page({
       return;
     }
     if (url) {
-      wx.navigateTo({ url });
+      wx.navigateTo({
+        url
+      });
       return;
     }
     this.onShowToast('#t-toast', name);
@@ -133,21 +160,32 @@ Page({
   },
 
   closeContactSheet() {
-    this.setData({ showContactSheet: false });
+    this.setData({
+      showContactSheet: false
+    });
   },
 
   onCallPhone() {
-    const { phone } = this.data.settingList.find((i) => i.type === 'contact');
-    wx.makePhoneCall({ phoneNumber: phone });
+    const {
+      phone
+    } = this.data.settingList.find((i) => i.type === 'contact');
+    wx.makePhoneCall({
+      phoneNumber: phone
+    });
     this.closeContactSheet();
   },
 
   onCopyWechat() {
-    const { wechatId } = this.data.settingList.find((i) => i.type === 'contact');
+    const {
+      wechatId
+    } = this.data.settingList.find((i) => i.type === 'contact');
     wx.setClipboardData({
       data: wechatId,
       success: () => {
-        wx.showToast({ title: '微信号已复制', icon: 'success' });
+        wx.showToast({
+          title: '微信号已复制',
+          icon: 'success'
+        });
       },
     });
     this.closeContactSheet();
