@@ -20,7 +20,7 @@
       <view class="card-detail__content">
         <block wx:for="{{detail.content}}" wx:key="index">
           <image wx:if="{{item.type === 'image'}}" class="card-detail__content-image" src="{{item.url}}"
-            mode="{{item.mode || 'widthFix'}}" />
+            mode="{{item.mode || 'widthFix'}}" data-url="{{item.url}}" bindtap="onPreviewImage" />
           <view wx:elif="{{item.type === 'text'}}" class="card-detail__text">{{item.value}}</view>
         </block>
       </view>

@@ -75,6 +75,22 @@ Page({
     }
   },
 
+  onPreviewImage(e) {
+    const { detail } = this.data;
+    const { url } = e.currentTarget.dataset;
+
+    if (!url || !detail || !Array.isArray(detail.content)) {
+      return;
+    }
+
+    const urls = detail.content.filter((item) => item.type === 'image' && item.url).map((item) => item.url);
+
+    wx.previewImage({
+      current: url,
+      urls,
+    });
+  },
+
   onShareAppMessage() {
     const { detail, id } = this.data;
 
